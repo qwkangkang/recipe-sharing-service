@@ -1,0 +1,35 @@
+<h3>Edit Content</h3>
+<div class="row">
+    <form action="/contents/{{content._id}}" method="POST" class="col s12">
+    <input type="hidden" name="_method" value="PUT">
+        <div class="row">
+            <div class="input-field">
+                <input type="text" id="title" name="title" value="{{content.title}}">
+                <label for="title">Title</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field">
+                <select name="status" id="status">
+                    {{#select content.status}}
+                    <option value="public">Public</option>
+                    <option value="private">Private</option>
+                    {{/select}}
+                </select>
+                <label for="status"></label>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="input-field">
+                <h5>Tell Us Your Content:</h5>
+                <textarea name="body" id="body">{{content.body}}</textarea>
+            </div>
+        </div>
+
+        <div class="row">
+            <input type="submit" value="Save" class="btn">
+            <a href="/dashboard" class="btn orange">Cancel</a>
+        </div>
+    </form>
+</div>
